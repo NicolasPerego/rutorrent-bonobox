@@ -324,9 +324,9 @@ if [ ! -f "$NGINXENABLE"/rutorrent.conf ]; then
 
 	# téléchargement et déplacement de rutorrent
 	cd /tmp || exit
-	"$CMDWGET" https://github.com/Novik/ruTorrent/archive/refs/tags/v3.8.zip -O ruTorrent-3.8.zip
-	"$CMDUNZIP" ruTorrent-3.8.zip
-	"$CMDMV" ruTorrent-3.8 "$RUTORRENT"
+	"$CMDWGET" https://github.com/Novik/ruTorrent/archive/refs/tags/v4.0-beta.1.zip -O ruTorrent-4.0-beta.1.zip
+	"$CMDUNZIP" ruTorrent-4.0-beta.1.zip
+	"$CMDMV" ruTorrent-4.0-beta.1 "$RUTORRENT"
 	"$CMDECHO" ""; set "146" "134"; FONCTXT "$1" "$2"; "$CMDECHO" -e "${CBLUE}$TXT1${CEND}${CGREEN}$TXT2${CEND}"; "$CMDECHO" ""
 
 	# installation des plugins - thank Micdu70 ;)
