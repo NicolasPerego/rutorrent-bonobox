@@ -323,14 +323,10 @@ if [ ! -f "$NGINXENABLE"/rutorrent.conf ]; then
 	"$CMDCP" -R "$BONOBOX"/base "$NGINXBASE"
 
 	# téléchargement et déplacement de rutorrent
-	"$CMDGIT" clone --progress https://github.com/Novik/ruTorrent.git "$RUTORRENT"
-	cd "$RUTORRENT" || exit
-	"$CMDGIT" fetch --tags
-	"$CMDGIT" checkout "v3.8" || {
-	    echo "Error: ruTorrent v3.8 tag not found!"
-	    exit 1
-	}
-	cd ..
+	cd /tmp || exit
+	"$CMDWGET" https://github.com/Novik/ruTorrent/archive/refs/tags/v3.8.zip -O ruTorrent-3.8.zip
+	"$CMDUNZIP" ruTorrent-3.8.zip
+	"$CMDMV" ruTorrent-3.8 "$RUTORRENT"
 	"$CMDECHO" ""; set "146" "134"; FONCTXT "$1" "$2"; "$CMDECHO" -e "${CBLUE}$TXT1${CEND}${CGREEN}$TXT2${CEND}"; "$CMDECHO" ""
 
 	# installation des plugins - thank Micdu70 ;)
